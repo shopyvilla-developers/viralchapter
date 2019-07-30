@@ -1,0 +1,12 @@
+{
+    "name": "Post",
+    "alias": "Post",
+    "description": "Managing Posts.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 10,
+    "providers": [
+        "Modules\\Post\\Providers\\PostServiceProvider",
+        "Modules\\Post\\Providers\\RouteServiceProvider"
+    ]
+}

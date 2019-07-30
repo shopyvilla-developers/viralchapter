@@ -1,0 +1,29 @@
+{
+    "name": "CloudCMS/user",
+    "description": "The CloudCMS User Module.",
+    "authors": [
+        {
+            "name": "Mehedi Hassan",
+            "email": "MehediDracula@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.3",
+        "cartalyst/sentinel": "^2.0",
+        "laravel/socialite": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\User\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "config": {
+        "sort-amenitys": true
+    },
+    "minimum-stability": "dev"
+}

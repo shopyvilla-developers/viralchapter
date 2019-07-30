@@ -1,0 +1,29 @@
+{
+    "name": "CloudCMS/cart",
+    "description": "The CloudCMS Cart Module.",
+    "authors": [
+        {
+            "name": "Mehedi Hassan",
+            "email": "MehediDracula@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.3",
+        "darryldecode/cart": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Cart\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "config": {
+        "sort-amenitys": true
+    },
+    "minimum-stability": "dev"
+}
+

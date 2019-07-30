@@ -1,0 +1,10 @@
+{
+    "name": "Account",
+    "alias": "account",
+    "description": "The CloudCMS Account Module.",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Account\\Providers\\RouteServiceProvider"
+    ]
+}
