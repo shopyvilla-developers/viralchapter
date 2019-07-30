@@ -36,3 +36,43 @@ Route::delete('Posts/{ids?}', [
     'uses' => 'PostController@destroy',
     'middleware' => 'can:admin.posts.destroy',
 ]);
+
+
+
+
+
+Route::get('withdraw', [
+    'as' => 'admin.withdraw.index',
+    'uses' => 'WithdrawController@index',
+    'middleware' => 'can:admin.withdraw.index',
+]);
+
+Route::get('withdraw/create', [
+    'as' => 'admin.withdraw.create',
+    'uses' => 'WithdrawController@create',
+    'middleware' => 'can:admin.withdraw.create',
+]);
+
+Route::post('withdraw', [
+    'as' => 'admin.withdraw.store',
+    'uses' => 'WithdrawController@store',
+    'middleware' => 'can:admin.withdraw.create',
+]);
+
+Route::get('withdraw/{id}/edit', [
+    'as' => 'admin.withdraw.edit',
+    'uses' => 'WithdrawController@edit',
+    'middleware' => 'can:admin.withdraw.edit',
+]);
+
+Route::put('withdraw/{id}/edit', [
+    'as' => 'admin.withdraw.update',
+    'uses' => 'WithdrawController@update',
+    'middleware' => 'can:admin.withdraw.edit',
+]);
+
+Route::delete('withdraw/{ids?}', [
+    'as' => 'admin.withdraw.destroy',
+    'uses' => 'WithdrawController@destroy',
+    'middleware' => 'can:admin.withdraw.destroy',
+]);

@@ -33,9 +33,9 @@ class User extends EloquentUser implements AuthenticatableContract
         return static::where('email', $email)->first();
     }
 
-    public static function totalCustomers()
+    public static function totalAuthors()
     {
-        return Role::findOrNew(setting('customer_role'))->users()->count();
+        return Role::findOrNew(setting('author_role'))->users()->count();
     }
 
     /**

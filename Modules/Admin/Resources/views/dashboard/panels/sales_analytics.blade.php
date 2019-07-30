@@ -1,6 +1,6 @@
 <div class="sales-analytics">
     <div class="grid-header clearfix">
-        <h4><i class="fa fa-bar-chart" aria-hidden="true"></i>Sales Analystics</h4>
+        <h4><i class="fa fa-bar-chart" aria-hidden="true"></i>Earning Analystics</h4>
     </div>
 
     <div class="canvas">

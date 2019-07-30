@@ -2,11 +2,14 @@
 
 namespace Modules\Admin\Http\Controllers\Admin;
 
-use Modules\User\Entities\User;
-use Modules\Order\Entities\Order;
+use Modules\User\Entities\User; 
+use Modules\Post\Entities\Post; 
+use Modules\Post\Entities\Withdraw; 
+use Modules\Post\Entities\Views; 
 use Illuminate\Routing\Controller; 
 use Modules\Product\Entities\Product;
-use Modules\Product\Entities\SearchTerm;
+use Modules\Post\Entities\SearchTerm;
+use Modules\Support\Money;
 
 class DashboardController extends Controller
 {
@@ -17,36 +20,25 @@ class DashboardController extends Controller
      */
     public function index()
     {
+      
          $dData = [ 
            
-            'totalCustomers' => User::totalCustomers(),
-            'latestSearchTerms' => $this->getLatestSearchTerms(),
-            'latestOrders' => $this->getLatestOrders(), 
+            'totalAuthors' => User::totalAuthors(),
+            'totalArticles' => Post::totalArticles(),
+            'authorsEarning' => Money::inDefaultCurrency(Views::authorsEarning()),
+            'paidViews' => Views::paidViews(),
+            'latestSearchTerms' => $this->getLatestSearchTerms(), 
+            'withdrawRequest' => Withdraw::withdrawRequest(), 
+            'withdrawn' => false,
         ];
 
-   
-          if (auth()->user()->roles[0]->id == setting('seller_role') ) {
-            
-              $dData['totalOrders'] = Order::whereHas('products', function ($q) { 
+  
+          if (auth()->user()->roles[0]->id == setting('author_role') ) {           
+                $dData['withdrawn'] = true;
+               $dData['available_withdrawn'] = Money::inDefaultCurrency(auth()->user()->author_wallet);
 
-                                            $q->where('user_id', '=', auth()->user()->id);
-                                        })->count();
-
-
-              $totalSale = Order::whereHas('products', function ($q) { 
-
-                                            $q->where('user_id', '=', auth()->user()->id);
-                                        })->get();
-
-               $dData['totalSales'] = Order::TtotalSales($totalSale->sum('total'));               
-               $dData['sales_wallet'] = Money::inDefaultCurrency(auth()->user()->sales_wallet);
-
-              $dData['totalProducts'] = Product::withoutGlobalScope('active')->where('user_id',auth()->user()->id)->count();
-            }else{
-                 $dData['totalSales'] = Order::totalSales();
-                 $dData['totalOrders'] = Order::count();
-                 $dData['totalProducts'] = Product::withoutGlobalScope('active')->count();
-            }
+             
+            } 
 
 
         return view('admin::dashboard.index',$dData );
@@ -62,20 +54,7 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    private function getLatestOrders()
-    {
-        return Order::select([
-            'id',
-            'customer_first_name',
-            'customer_last_name',
-            'total',
-            'status',
-            'created_at',
-        ])
-        ->latest()
-        ->take(5)
-        ->get();
-    }
+    
 
     
 }

@@ -3,6 +3,6 @@
         <h4><?php echo e(trans('admin::dashboard.total_products')); ?></h4>
 
         <i class="fa fa-cubes" aria-hidden="true"></i>
-        <span class="pull-right"><?php echo e($totalProducts); ?></span>
+        <span class="pull-right"> </span>
     </div>
 </div>

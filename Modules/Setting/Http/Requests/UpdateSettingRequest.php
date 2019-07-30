@@ -27,11 +27,11 @@ class UpdateSettingRequest extends Request
     {
         return [
             'supported_countries.*' => ['required', Rule::in(Country::codes())],
-            'default_country' => 'required|in_array:supported_countries.*',
+             
             'supported_locales.*' => ['required', Rule::in(Locale::codes())],
             'default_locale' => 'required|in_array:supported_locales.*',
             'default_timezone' => ['required', Rule::in(TimeZone::all())],
-            'customer_role' => ['required', Rule::exists('roles', 'id')],
+            'author_role' => ['required', Rule::exists('roles', 'id')],
             'supported_currencies.*' => ['required', Rule::in(Currency::codes())],
             'default_currency' => 'required|in_array:supported_currencies.*',
  
@@ -54,30 +54,6 @@ class UpdateSettingRequest extends Request
             'google_login_client_secret' => 'required_if:google_login_enabled,1',
    
    
-            'paypal_express_enabled' => 'required|boolean',
-            'translatable.paypal_express_label' => 'required_if:paypal_express_enabled,1',
-            'translatable.paypal_express_description' => 'required_if:paypal_express_enabled,1',
-            'paypal_express_test_mode' => 'required|boolean',
-            'paypal_express_username' => 'required_if:paypal_express_enabled,1',
-            'paypal_express_password' => 'required_if:paypal_express_enabled,1',
-            'paypal_express_signature' => 'required_if:paypal_express_enabled,1',
-
-            'stripe_enabled' => 'required|boolean',
-            'translatable.stripe_label' => 'required_if:stripe_enabled,1',
-            'translatable.stripe_description' => 'required_if:stripe_enabled,1',
-            'stripe_publishable_key' => 'required_if:stripe_enabled,1',
-            'stripe_secret_key' => 'required_if:stripe_enabled,1',
- 
-
-            'bank_transfer_enabled' => 'required|boolean',
-            'translatable.bank_transfer_label' => 'required_if:bank_transfer_enabled,1',
-            'translatable.bank_transfer_description' => 'required_if:bank_transfer_enabled,1',
-            'translatable.bank_transfer_instructions' => 'required_if:bank_transfer_enabled,1',
-
-            'check_payment_enabled' => 'required|boolean',
-            'translatable.check_payment_label' => 'required_if:check_payment_enabled,1',
-            'translatable.check_payment_description' => 'required_if:check_payment_enabled,1',
-            'translatable.check_payment_instructions' => 'required_if:check_payment_enabled,1',
         ];
     }
 

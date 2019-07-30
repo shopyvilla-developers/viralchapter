@@ -16,38 +16,11 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $__empty_1 = true; $__currentLoopData = $latestOrders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $latestOrder): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                    <tr>
-                        <td>
-                            <a href="<?php echo e(route('admin.orders.show', $latestOrder)); ?>">
-                                <?php echo e($latestOrder->id); ?>
-
-                            </a>
-                        </td>
-                        <td>
-                            <a href="<?php echo e(route('admin.orders.show', $latestOrder)); ?>">
-                                <?php echo e($latestOrder->customer_full_name); ?>
-
-                            </a>
-                        </td>
-                        <td>
-                            <a href="<?php echo e(route('admin.orders.show', $latestOrder)); ?>">
-                                <?php echo e($latestOrder->status()); ?>
-
-                            </a>
-                        </td>
-                        <td>
-                            <a href="<?php echo e(route('admin.orders.show', $latestOrder)); ?>">
-                                <?php echo e($latestOrder->total->format($latestOrder->currency)); ?>
-
-                            </a>
-                        </td>
-                    </tr>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+              
                     <tr>
                         <td class="empty" colspan="5"><?php echo e(trans('admin::dashboard.no_data')); ?></td>
                     </tr>
-                <?php endif; ?>
+              
             </tbody>
         </table>
     </div>

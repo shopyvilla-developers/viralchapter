@@ -1,19 +1,15 @@
 <?php
 
 return [
-    'supported_countries' => 'Supported Countries',
-    'default_country' => 'Default Country',
+    
     'supported_locales' => 'Supported Locales',
     'default_locale' => 'Default Locale',
     'default_timezone' => 'Default Timezone',
-    'customer_role' => 'Customer Role',
-    'seller_role' => 'Seller Role',
-    'reviews_enabled' => 'Reviews & Ratings',
-    'auto_approve_reviews' => 'Auto Approve Reviews',
+    'author_role' => 'Author Role',
+    
     'welcome_email' => 'Welcome Email',
-    'admin_order_email' => 'Admin Order Email',
-    'order_status_email' => 'Order Status Email',
-    'invoice_email' => 'Invoice Email',
+    'admin_withdrawal_email' => 'Admin Withdrawal Email',
+    
 
     'maintenance_mode' => 'Maintenance Mode',
     'allowed_ips' => 'Allowed IPs',

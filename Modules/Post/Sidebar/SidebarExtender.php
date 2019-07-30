@@ -33,6 +33,20 @@ class SidebarExtender extends BaseSidebarExtender
                     );
                 });
             });
+        }); 
+
+         $menu->group(trans('admin::sidebar.content'), function (Group $group) {
+             $group->item(trans('post::sidebar.withdraw'), function (Item $item) {
+                $item->icon('fa fa-money');
+                $item->weight(4);
+                $item->route('admin.withdraw.index');
+                $item->authorize(
+                    $this->auth->hasAnyAccess([
+                        'admin.posts.index',
+                    ])
+                );
+
+            });
         });
 
 

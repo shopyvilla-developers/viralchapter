@@ -34,13 +34,6 @@ class SettingTabs extends Tabs
 
   
 
-        $this->group('payment_methods', trans('setting::settings.tabs.group.payment_methods'))
-            ->add($this->paypalExpress())
-            ->add($this->stripe())
-            ->add($this->instamojo())
-       
-            ->add($this->bankTransfer())
-            ->add($this->checkPayment());
     }
 
     private function general()
@@ -167,91 +160,4 @@ class SettingTabs extends Tabs
  
  
 
-    private function paypalExpress()
-    {
-        return tap(new Tab('paypal_express', trans('setting::settings.tabs.paypal_express')), function (Tab $tab) {
-            $tab->weight(55);
-
-            $tab->fields([
-                'paypal_express_enabled',
-                'translatable.paypal_express_label',
-                'translatable.paypal_express_description',
-                'paypal_express_env',
-                'paypal_express_username',
-                'paypal_express_password',
-                'paypal_express_signature',
-            ]);
-
-            $tab->view('setting::admin.settings.tabs.paypal_express');
-        });
-    }
-
-    private function stripe()
-    {
-        return tap(new Tab('stripe', trans('setting::settings.tabs.stripe')), function (Tab $tab) {
-            $tab->weight(60);
-
-            $tab->fields([
-                'stripe_enabled',
-                'translatable.stripe_label',
-                'translatable.stripe_description',
-                'stripe_publishable_key',
-                'stripe_secret_key',
-            ]);
-
-            $tab->view('setting::admin.settings.tabs.stripe');
-        });
-    }
-
-    private function instamojo()
-    {
-        return tap(new Tab('instamojo', trans('setting::settings.tabs.instamojo')), function (Tab $tab) {
-            $tab->weight(62);
-
-            $tab->fields([
-                'instamojo_enabled',
-                'instamojo_label',
-                'instamojo_description',
-                'instamojo_test_mode',
-                'instamojo_api_key',
-                'instamojo_auth_token',
-            ]);
-
-            $tab->view('setting::admin.settings.tabs.instamojo');
-        });
-    }
-
-  
-
-    private function bankTransfer()
-    {
-        return tap(new Tab('bank_transfer', trans('setting::settings.tabs.bank_transfer')), function (Tab $tab) {
-            $tab->weight(70);
-
-            $tab->fields([
-                'bank_transfer_enabled',
-                'translatable.bank_transfer_label',
-                'translatable.bank_transfer_description',
-                'translatable.bank_transfer_instructions',
-            ]);
-
-            $tab->view('setting::admin.settings.tabs.bank_transfer');
-        });
-    }
-
-    private function checkPayment()
-    {
-        return tap(new Tab('check_payment', trans('setting::settings.tabs.check_payment')), function (Tab $tab) {
-            $tab->weight(75);
-
-            $tab->fields([
-                'check_payment_enabled',
-                'translatable.check_payment_label',
-                'translatable.check_payment_description',
-                'translatable.check_payment_instructions',
-            ]);
-
-            $tab->view('setting::admin.settings.tabs.check_payment');
-        });
-    }
 }

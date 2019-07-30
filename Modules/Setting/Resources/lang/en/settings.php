@@ -25,13 +25,9 @@ return [
         'bank_transfer' => 'Bank Transfer',
         'check_payment' => 'Check / Money Order',
     ],
-    'form' => [
-        'allow_reviews' => 'Allow customers to give reviews & ratings',
-        'approve_reviews_automatically' => 'Customer reviews will be approved automatically',
+    'form' => [ 
         'send_welcome_email_after_registration' => 'Send welcome email after registration',
-        'send_order_notification_to_admin' => 'Send new order notification to the admin',
-        'send_email_after_order_status_changed' => 'Send email after order status is changed',
-        'send_invoice_email' => 'Send invoice email to the customer after checkout',
+        'send_withdrawal_notification_to_admin' => 'Send new withdrawal notification to the admin',
         'put_the_application_into_maintenance_mode' => 'Put the application into maintenance mode',
         'ip_addreses_seperated_in_new_line' => 'IP addreses seperated in new line',
         'select_service' => 'Select Service',

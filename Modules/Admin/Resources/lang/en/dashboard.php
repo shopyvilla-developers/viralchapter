@@ -2,25 +2,26 @@
 
 return [
     'dashboard' => 'Dashboard',
-    'total_sales' => 'Total Sales',
-    'total_orders' => 'Total Orders',
-    'total_products' => 'Total Products',
-    'total_customers' => 'Total Customers',
+    'total_articles' => 'Published Articles',
+    'authors_earning' => 'Authors Earning',
+    'paid_views' => 'Paid Views',
+    'total_authors' => 'Total Authors',
+    'available_withdrawn' => 'Available Withdraw',
     'no_data' => 'No data available!',
     'latest_search_terms' => 'Latest Search Terms',
-    'latest_orders' => 'Latest Orders',
+    'withdraw_requests' => 'Withdraw Requests',
     'latest_reviews' => 'Latest Reviews',
     'table' => [
-        'customer' => 'Customer',
+        'author' => 'Author',
         'latest_search_terms' => [
             'keyword' => 'Keyword',
             'results' => 'Results',
             'hits' => 'Hits',
         ],
-        'latest_orders' => [
-            'order_id' => 'Order ID',
+        'latest_withdraw' => [
+            'withdraw_id' => 'Withdraw ID',
             'status' => 'Status',
-            'total' => 'Total',
+            'amount' => 'Amount',
         ],
         'latest_reviews' => [
             'product' => 'Product',
@@ -28,8 +29,8 @@ return [
         ],
     ],
     'sales_analytics' => [
-        'orders' => 'Orders',
-        'sales' => 'Sales',
+        'orders' => 'Views',
+        'sales' => 'Earn',
         'day_names' => [
             'Monday',
             'Tuesday',

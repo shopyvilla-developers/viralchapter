@@ -12,6 +12,9 @@
 @endsection
 
 @section('content')
+@if ($errors->any())
+        {{ implode('', $errors->all('<div>:message</div>')) }}
+@endif
     <form method="POST" action="{{ route('admin.settings.update') }}" class="form-horizontal" id="settings-edit-form" novalidate>
         {{ csrf_field() }}
         {{ method_field('put') }}

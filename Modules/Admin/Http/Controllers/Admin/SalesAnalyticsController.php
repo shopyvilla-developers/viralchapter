@@ -2,7 +2,7 @@
 
 namespace Modules\Admin\Http\Controllers\Admin;
 
-use Modules\Order\Entities\Order;
+use Modules\Post\Entities\Views;
 use Illuminate\Routing\Controller;
 
 class SalesAnalyticsController extends Controller
@@ -16,7 +16,7 @@ class SalesAnalyticsController extends Controller
     {
         return response()->json([
             'labels' => trans('admin::dashboard.sales_analytics.day_names'),
-            'data' => Order::salesAnalytics(),
+            'data' => Views::salesAnalytics(),
         ]);
     }
 }

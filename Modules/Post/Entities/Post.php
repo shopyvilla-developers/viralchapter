@@ -75,6 +75,17 @@ class Post extends Model
         return localized_url(locale(), $this->slug);
     }
 
+    public static function totalArticles()
+    {
+        $query = static::all();
+        if (auth()->user()->roles[0]->id == setting('author_role') ) {
+            $query->where('user_id',auth()->user()->id);
+         }
+
+         return $query->count();
+    }
+
+
     /**
      * Get table data for the resource
      *
@@ -84,7 +95,7 @@ class Post extends Model
     {
         $query = $this->newQuery();
 
-         if (auth()->user()->roles[0]->id == setting('customer_role') ) {
+         if (auth()->user()->roles[0]->id == setting('author_role') ) {
             $query->where('user_id',auth()->user()->id);
          }
 

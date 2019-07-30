@@ -27,5 +27,5 @@
         <i class="fa fa-keyboard-o"></i>
     </a>&nbsp;
 
-    <span>Copyright &copy; <?php echo e(date('Y')); ?> <a href="http://envaysoft.com/CloudCMS" target="_blank">karttip</a></span>
+    <span>Copyright &copy; <?php echo e(date('Y')); ?> <a href="http://envaysoft.com/CloudCMS" target="_blank">viralchapter</a></span>
 </footer>

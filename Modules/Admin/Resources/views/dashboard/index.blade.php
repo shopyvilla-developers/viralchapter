@@ -9,29 +9,34 @@
 @section('content')
     <div class="grid clearfix">
         <div class="row">
-            @hasAccess('admin.orders.index')
-                @include('admin::dashboard.grids.total_sales')
-                @include('admin::dashboard.grids.total_orders')
+            @hasAccess('admin.posts.index')
+                @include('admin::dashboard.grids.total_articles')
+                @include('admin::dashboard.grids.authors_earning')
             @endHasAccess
 
-            @hasAccess('admin.products.index')
-                @include('admin::dashboard.grids.total_products')
+            @hasAccess('admin.posts.index')
+                @include('admin::dashboard.grids.paid_views')
             @endHasAccess
 
             @hasAccess('admin.users.index')
-                @include('admin::dashboard.grids.total_customers')
+                @include('admin::dashboard.grids.total_authors')
             @endHasAccess
+           
+            @if($withdrawn)
+                @include('admin::dashboard.grids.available_withdrawn')
+            @endif
+            
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-7">
-            @hasAccess('admin.orders.index')
+            @hasAccess('admin.posts.index')
                 @include('admin::dashboard.panels.sales_analytics')
             @endHasAccess
 
-            @hasAccess('admin.orders.index')
-                @include('admin::dashboard.panels.latest_orders')
+            @hasAccess('admin.posts.index')
+                @include('admin::dashboard.panels.withdraw_requests')
             @endHasAccess
         </div>
 
